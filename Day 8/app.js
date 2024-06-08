@@ -1,7 +1,9 @@
+// Get the HTML elements
 const colourDisplaySection = document.getElementById("colour-display");
 const newColourBtnElement = document.getElementById("new-colour-button");
 const currentColourElement = document.getElementById("current-colour");
 
+// Define the hexadecimal values from 0 to F
 const hexValues = [
   "0",
   "1",
@@ -21,12 +23,12 @@ const hexValues = [
   "F",
 ];
 
+// Generate a random hexadecimal value
 function getRandomHexVlaue() {
-  const randomIndexPosition = Math.floor(Math.random() * hexValues.length);
-  const randomHexValue = hexValues[randomIndexPosition];
-  return randomHexValue;
+  return hexValues[Math.floor(Math.random() * hexValues.length)];
 }
 
+// Generate a random hexadecimal string of a given length
 function getRandomHexString(stringLength) {
   let hexString = "";
   for (let i = 0; i < stringLength; i++) {
@@ -35,6 +37,7 @@ function getRandomHexString(stringLength) {
   return hexString;
 }
 
+// Change background color on button click
 newColourBtnElement.addEventListener("click", function () {
   const randomHexString = "#" + getRandomHexString(6);
   document.body.style.setProperty("background-color", randomHexString);
